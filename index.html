@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Felpen Friends — Brand Designer & AI Vibe Coder</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal: "#363636",
+            primary: "#143de7",
+            secondary: "#ab3525",
+            "tertiary-fixed": "#ffe173",
+            "off-white": "#F9F9F9",
+            background: "#fbf9f8",
+            "muted-gray": "#D2D2D2",
+            "surface-low": "#f0eded",
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+          },
+          spacing: {
+            gutter: "32px",
+            "margin-mobile": "20px",
+            "margin-desktop": "64px",
+            "section-gap": "96px",
+          },
+          fontFamily: {
+            sora: ["Sora", "sans-serif"],
+            inter: ["Inter", "sans-serif"],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    .btn-offset {
+      position: relative;
+      transition: transform 0.15s ease-out;
+    }
+    .btn-offset::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: #363636;
+      transform: translate(4px, 4px);
+      z-index: -1;
+    }
+    .btn-offset:hover { transform: translate(-3px, -3px); }
+    .btn-offset:active { transform: translate(1px, 1px); }
+
+    .card-border { border: 3px solid #363636; }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      animation: marquee 28s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    .card-tilt { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .card-tilt:hover { transform: rotate(1deg) scale(1.02); }
+    .card-tilt-neg:hover { transform: rotate(-1deg) scale(1.02); }
+
+    .active-tab {
+      background: #363636;
+      color: #ffffff;
+    }
+
+
+    .card-cell {
+      border-right: 3px solid #363636;
+      border-bottom: 3px solid #363636;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-cell span {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: clamp(13px, 1.6vw, 20px);
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body class="bg-background text-charcoal font-inter overflow-x-hidden">
+
+  <!-- ── Nav ── -->
+  <nav class="sticky top-0 z-50 flex justify-between items-center
+              px-margin-mobile md:px-margin-desktop py-4
+              bg-background/95 backdrop-blur-sm
+              border-b-2 border-charcoal">
+
+    <a href="#" class="font-sora font-black text-4xl tracking-tight">
+      FELPEN FRIENDS
+    </a>
+
+    <div class="hidden md:flex items-center gap-1">
+      <a href="#featured" class="px-4 py-2 font-inter font-bold text-sm tracking-widest uppercase hover:text-primary transition-colors">Work</a>
+      <a href="#more"     class="px-4 py-2 font-inter font-bold text-sm tracking-widest uppercase hover:text-primary transition-colors">More</a>
+      <a href="#" id="open-about" class="px-4 py-2 font-inter font-bold text-sm tracking-widest uppercase hover:text-primary transition-colors">About</a>
+      <a href="#contact"  class="px-4 py-2 font-inter font-bold text-sm tracking-widest uppercase hover:text-primary transition-colors">Contact</a>
+    </div>
+
+    <a href="#contact"
+       class="btn-offset bg-primary text-white px-6 py-2
+              font-inter font-bold text-sm tracking-widest uppercase
+              border-2 border-charcoal">
+      Hire Me
+    </a>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="min-h-[85vh] flex flex-col md:grid md:grid-cols-12
+                  items-center gap-gutter
+                  px-margin-mobile md:px-margin-desktop py-16 relative">
+
+    <!-- Left copy -->
+    <div class="md:col-span-7 z-10">
+      <span class="inline-block font-inter font-bold text-sm tracking-widest uppercase
+                   bg-tertiary-fixed text-charcoal
+                   px-3 py-1 border-2 border-charcoal mb-6">
+        <span>Seoul, Korea</span>
+      </span>
+
+      <h1 class="font-sora font-extrabold leading-none tracking-tight
+                 text-[52px] md:text-[80px] lg:text-[96px]
+                 text-charcoal mb-8">
+        Brand<br>Designer<br>&amp; AI Vibe<br>Coder.
+      </h1>
+
+      <p class="font-inter text-lg text-charcoal/60 max-w-md mb-10 leading-relaxed">
+        AI 기술과 디자인의 시너지를 통해, 가장 효율적이고 임팩트 있는 비즈니스 솔루션을 제시합니다.<br>
+        By leveraging the synergy between AI technology and design, we deliver the most efficient and impactful business solutions.
+      </p>
+
+      <div class="flex gap-4 flex-wrap">
+        <a href="#featured"
+           class="btn-offset bg-secondary text-white
+                  px-8 py-4 font-inter font-bold text-sm tracking-widest uppercase
+                  border-2 border-charcoal">
+          View Work
+        </a>
+        <a href="#contact"
+           class="btn-offset bg-background text-charcoal
+                  px-8 py-4 font-inter font-bold text-sm tracking-widest uppercase
+                  border-2 border-charcoal">
+          Start a Project
+        </a>
+      </div>
+    </div>
+
+    <!-- Right image -->
+    <div class="md:col-span-5 flex justify-center mt-12 md:mt-0 relative">
+      <!-- Main image box -->
+      <div class="card-border w-full max-w-sm aspect-square bg-white rotate-2 relative"
+           style="overflow:hidden;">
+        <img src="images/1.png"
+             alt="Felpen Friends"
+             style="position:absolute; width:auto; height:100%; bottom:0; left:50%; transform:translateX(-50%);">
+      </div>
+      <!-- Bounce badge -->
+      <div class="absolute -top-4 -right-4 md:right-8
+                  w-20 h-20 rounded-full border-2 border-charcoal
+                  bg-primary text-white
+                  flex items-center justify-center
+                  animate-bounce">
+        <span class="font-sora font-black text-xs text-center leading-tight uppercase">I am<br>Felpen</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Clients marquee ── -->
+  <div class="w-full bg-charcoal py-6 border-y-2 border-charcoal overflow-hidden">
+    <div class="marquee-track items-center">
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">Illustration</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">Photoshop</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">Branding</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">Package</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">Character</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">AI</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">Web / App</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+      <!-- duplicate for seamless loop -->
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">Illustration</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">Photoshop</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">Branding</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">Package</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">Character</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">AI</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+      <span class="font-sora font-bold text-2xl text-white uppercase mx-6">Web / App</span>
+      <span class="text-white/20 text-2xl mx-2">/</span>
+    </div>
+  </div>
+
+  <!-- ── Selected Clients ── -->
+  <section class="px-margin-mobile md:px-margin-desktop pt-12 pb-0">
+    <p class="font-sora font-black text-xs tracking-widest uppercase text-charcoal/40 mb-4">Selected Clients</p>
+    <div class="grid grid-cols-4 border-l-[3px] border-t-[3px] border-charcoal">
+      <a href="#card-illustration" class="card-cell bg-[#39FF14] text-charcoal hover:opacity-80 transition-opacity"><span>ILLUSTRATION</span></a>
+      <a href="#more"              class="card-cell bg-white text-charcoal hover:bg-charcoal hover:text-white transition-colors"><span>PHOTOSHOP</span></a>
+      <a href="#card-branding"     class="card-cell bg-[#FF00FF] text-charcoal hover:opacity-80 transition-opacity"><span>BRANDING</span></a>
+      <a href="#card-illustration" class="card-cell bg-white text-charcoal hover:bg-charcoal hover:text-white transition-colors"><span>PACKAGE</span></a>
+      <a href="#card-branding"    class="card-cell bg-[#1A6FFF] text-white hover:opacity-80 transition-opacity"><span>CHARACTER</span></a>
+      <a href="#card-ai"           class="card-cell bg-white text-charcoal hover:bg-charcoal hover:text-white transition-colors"><span>AI</span></a>
+      <a href="#more"              class="card-cell bg-[#7B1A1A] text-white hover:opacity-80 transition-opacity"><span>WEB / APP</span></a>
+      <a href="#card-logo"         class="card-cell bg-white text-charcoal hover:bg-charcoal hover:text-white transition-colors"><span>LOGO</span></a>
+    </div>
+  </section>
+
+  <!-- ── Featured Work ── -->
+  <section id="featured" class="px-margin-mobile md:px-margin-desktop py-section-gap">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+      <div>
+        <span class="font-inter font-bold text-sm tracking-widest uppercase text-secondary block mb-2">Selected Projects</span>
+        <h2 class="font-sora font-extrabold text-[36px] md:text-[48px] tracking-tight leading-none">Featured Work</h2>
+      </div>
+      <p class="font-inter text-base text-charcoal/50 max-w-xs">
+        Brand identity, AI interfaces, and digital experiences.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+      <!-- Card 1 -->
+      <div id="card-illustration" class="group cursor-pointer card-tilt open-modal"
+           data-title="그대로 짜낸 순수 석류 100%"
+           data-cat="Package Design, 2025"
+           data-desc="첨가물 없이 석류 원액만을 담은 프리미엄 주스 브랜드의 패키지 디자인입니다. 석류의 싱그러운 일러스트와 깨끗한 화이트 베이스를 조합해 '순수함'과 '자연 그대로'의 브랜드 가치를 시각화했습니다. 타이포그래피와 레이아웃은 제품의 프리미엄 포지셔닝을 강조하며, 선반 위에서도 한눈에 시선을 끄는 구조로 설계되었습니다."
+           data-bg="#D4CFC8"
+           data-img="images/package/detail/석류_패키지_디자인_최종.jpg">
+        <div class="card-border bg-white mb-5 overflow-hidden h-[360px] md:h-[460px]">
+          <img src="images/package/main/석류.png"
+               alt="그대로 짜낸 순수 석류 100%"
+               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="flex justify-between items-center">
+          <h3 class="font-sora font-bold text-2xl tracking-tight">Package</h3>
+          <span class="font-inter font-bold text-xs tracking-widest uppercase border-b-2 border-charcoal pb-0.5">View →</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div id="card-ai" class="group cursor-pointer card-tilt card-tilt-neg open-modal"
+           data-title="MarkMind"
+           data-cat="AI Vibe Coding, 2025"
+           data-desc="MarkMind는 AI를 활용한 북마크 자동 정리 서비스입니다. 저장해둔 링크들을 AI가 내용을 분석하고 카테고리별로 자동 분류해 필요한 정보를 빠르게 찾을 수 있도록 도와줍니다. 반응형 웹으로 제작되어 PC·모바일 어디서나 편리하게 사용할 수 있으며, 디자인부터 개발까지 AI Vibe Coding으로 직접 구현한 프로젝트입니다."
+           data-bg="#BFB8AF"
+           data-img="images/AI Coding Development/detail/MarkMind - AI 북마크 정리.pdf"
+           data-link="https://markmind-nu.vercel.app"
+           data-link-label="사이트 바로가기 →">
+        <div class="card-border bg-white mb-5 overflow-hidden h-[360px] md:h-[460px]">
+          <img src="images/AI Coding Development/main/CleanShot 2026-05-31 at 21.04.20.png"
+               alt="AI Coding Development"
+               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="flex justify-between items-center">
+          <h3 class="font-sora font-bold text-2xl tracking-tight">AI Coding Development</h3>
+          <span class="font-inter font-bold text-xs tracking-widest uppercase border-b-2 border-charcoal pb-0.5">View →</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div id="card-branding" class="group cursor-pointer card-tilt open-modal"
+           data-title="Felpen Friends"
+           data-cat="Character Design, 2024"
+           data-desc="팰팬프렌즈(Felpen Friends)는 브랜드의 얼굴이 되는 오리지널 캐릭터 IP 개발 프로젝트입니다. 단순한 마스코트를 넘어, 고유한 세계관과 성격을 가진 캐릭터를 기획·설계했습니다. 캐릭터의 외형 디자인부터 컬러 시스템, 표정 가이드, 포즈 라이브러리까지 브랜드 전반에 일관되게 활용할 수 있는 캐릭터 시스템을 구축했습니다. 귀엽고 개성 있는 비주얼 언어를 통해 소비자와 감성적으로 연결되는 브랜드 경험을 목표로 개발되었습니다."
+           data-bg="#C8C0B8"
+           data-img="images/character/detail/캐릭터.png"
+           data-link="https://blog.naver.com/zhsksdhahxp/221873859620">
+        <div class="card-border bg-white mb-5 overflow-hidden h-[360px] md:h-[460px]">
+          <img src="images/character/main/캐릭터 메인.png"
+               alt="Character"
+               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="flex justify-between items-center">
+          <h3 class="font-sora font-bold text-2xl tracking-tight">Character</h3>
+          <span class="font-inter font-bold text-xs tracking-widest uppercase border-b-2 border-charcoal pb-0.5">View →</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div id="card-logo" class="group cursor-pointer card-tilt card-tilt-neg open-modal"
+           data-title="커피도시 부산 BI 로고 디자인"
+           data-cat="Brand Identity, 2024"
+           data-desc="부산을 대표하는 커피 문화 브랜드 '커피도시 부산'의 BI(Brand Identity) 로고 디자인 프로젝트입니다. 부산의 바다와 항구, 그리고 커피 문화가 어우러진 도시 정체성을 로고 하나에 함축적으로 담아냈습니다. 심볼과 로고타입의 조합을 통해 지역성과 감성을 동시에 전달하며, 다양한 매체와 굿즈에 유연하게 적용 가능한 브랜드 시스템으로 설계되었습니다."
+           data-bg="#E2DDD6"
+           data-img="images/logo/detail/logo.png"
+           data-link="https://blog.naver.com/zhsksdhahxp/222727035178">
+        <div class="card-border bg-white mb-5 overflow-hidden h-[360px] md:h-[460px]">
+          <img src="images/logo/main/logo 메인.png"
+               alt="Logo"
+               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="flex justify-between items-center">
+          <h3 class="font-sora font-bold text-2xl tracking-tight">Logo</h3>
+          <span class="font-inter font-bold text-xs tracking-widest uppercase border-b-2 border-charcoal pb-0.5">View →</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── More Work ── -->
+  <section id="more" class="px-margin-mobile md:px-margin-desktop py-section-gap bg-surface-low border-y-2 border-charcoal">
+    <div class="mb-16 text-center">
+      <h2 class="font-sora font-extrabold text-[36px] md:text-[48px] tracking-tight leading-none mb-4">More Work</h2>
+      <p class="font-inter text-base text-charcoal/50">A deeper look into the studio's projects.</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+      <div class="card-border bg-white overflow-hidden group card-tilt cursor-pointer">
+        <div class="aspect-square bg-[#D0CABC] transition-transform duration-500 group-hover:scale-110"></div>
+        <p class="font-inter font-bold text-xs tracking-widest uppercase p-3 border-t-2 border-charcoal">Package</p>
+      </div>
+      <div class="card-border bg-white overflow-hidden group card-tilt-neg cursor-pointer">
+        <div class="aspect-square bg-[#C4BEB6] transition-transform duration-500 group-hover:scale-110"></div>
+        <p class="font-inter font-bold text-xs tracking-widest uppercase p-3 border-t-2 border-charcoal">Landing Page</p>
+      </div>
+      <div class="card-border bg-white overflow-hidden group card-tilt cursor-pointer">
+        <div class="aspect-square bg-[#DAD4CA] transition-transform duration-500 group-hover:scale-110"></div>
+        <p class="font-inter font-bold text-xs tracking-widest uppercase p-3 border-t-2 border-charcoal">AI Brand Kit</p>
+      </div>
+      <div class="card-border bg-white overflow-hidden group card-tilt-neg cursor-pointer">
+        <div class="aspect-square bg-[#B8B0A8] transition-transform duration-500 group-hover:scale-110"></div>
+        <p class="font-inter font-bold text-xs tracking-widest uppercase p-3 border-t-2 border-charcoal">Editorial</p>
+      </div>
+      <div class="card-border bg-white overflow-hidden group card-tilt cursor-pointer">
+        <div class="aspect-square bg-[#CEC8C0] transition-transform duration-500 group-hover:scale-110"></div>
+        <p class="font-inter font-bold text-xs tracking-widest uppercase p-3 border-t-2 border-charcoal">Type System</p>
+      </div>
+      <div class="card-border bg-white overflow-hidden group card-tilt-neg cursor-pointer">
+        <div class="aspect-square bg-[#D8D2C8] transition-transform duration-500 group-hover:scale-110"></div>
+        <p class="font-inter font-bold text-xs tracking-widest uppercase p-3 border-t-2 border-charcoal">Motion</p>
+      </div>
+      <div class="card-border bg-white overflow-hidden group card-tilt cursor-pointer">
+        <div class="aspect-square bg-[#C0BCAF] transition-transform duration-500 group-hover:scale-110"></div>
+        <p class="font-inter font-bold text-xs tracking-widest uppercase p-3 border-t-2 border-charcoal">Vibe UI</p>
+      </div>
+      <div class="card-border bg-white overflow-hidden group card-tilt-neg cursor-pointer">
+        <div class="aspect-square bg-[#E2DDD6] transition-transform duration-500 group-hover:scale-110"></div>
+        <p class="font-inter font-bold text-xs tracking-widest uppercase p-3 border-t-2 border-charcoal">Web Design</p>
+      </div>
+    </div>
+
+    <div class="mt-16 text-center">
+      <button class="btn-offset bg-charcoal text-white
+                     px-12 py-4 font-inter font-bold text-sm tracking-widest uppercase
+                     border-2 border-charcoal">
+        Load More
+      </button>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section id="about" class="px-margin-mobile md:px-margin-desktop py-section-gap
+                              grid grid-cols-1 md:grid-cols-2 gap-gutter items-start">
+    <div>
+      <span class="font-inter font-bold text-sm tracking-widest uppercase text-secondary block mb-4">About the Studio</span>
+      <h2 class="font-sora font-extrabold text-[36px] md:text-[52px] tracking-tight leading-none mb-8">
+        Design that<br>moves people.
+      </h2>
+      <p class="font-inter text-lg text-charcoal/60 leading-relaxed mb-6">
+        브랜드에 생명을 불어넣는 디자이너이자,<br>
+        AI와 함께 코드로 세상을 바꾸는 바이브 코더.
+      </p>
+      <p class="font-inter text-base text-charcoal/50 leading-relaxed">
+        아이디어를 빠르게 현실로 만드는 것을 좋아합니다.<br>
+        좋은 디자인은 보이지 않는 곳에 있다고 믿습니다.
+      </p>
+    </div>
+    <div class="pt-2">
+      <p class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/40 mb-6">Skills &amp; Tools</p>
+      <div class="flex flex-wrap gap-3">
+        <span class="card-border px-4 py-2 font-inter font-bold text-xs tracking-widest uppercase">Brand Identity</span>
+        <span class="card-border px-4 py-2 font-inter font-bold text-xs tracking-widest uppercase">Typography</span>
+        <span class="card-border px-4 py-2 font-inter font-bold text-xs tracking-widest uppercase">Visual Design</span>
+        <span class="card-border px-4 py-2 font-inter font-bold text-xs tracking-widest uppercase">AI Tools</span>
+        <span class="card-border px-4 py-2 font-inter font-bold text-xs tracking-widest uppercase">Vibe Coding</span>
+        <span class="card-border px-4 py-2 font-inter font-bold text-xs tracking-widest uppercase">Claude</span>
+        <span class="card-border px-4 py-2 font-inter font-bold text-xs tracking-widest uppercase">Figma</span>
+        <span class="card-border px-4 py-2 font-inter font-bold text-xs tracking-widest uppercase">HTML / CSS</span>
+        <span class="card-border px-4 py-2 font-inter font-bold text-xs tracking-widest uppercase">Motion</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer / Contact ── -->
+  <footer id="contact" class="bg-charcoal text-white
+                               px-margin-mobile md:px-margin-desktop py-section-gap
+                               border-t-2 border-charcoal">
+    <div class="flex flex-col md:flex-row justify-between items-start gap-16 mb-16">
+      <div>
+        <h2 class="font-sora font-extrabold text-[48px] md:text-[72px] tracking-tight leading-none mb-8">
+          FELPEN<br>FRIENDS
+        </h2>
+        <button id="open-contact-form"
+           class="btn-offset bg-secondary text-white
+                  px-8 py-4 font-inter font-bold text-sm tracking-widest normal-case
+                  border-2 border-white/30 cursor-pointer">
+          felpen@naver.com
+        </button>
+      </div>
+
+      <div class="flex flex-col gap-6 mt-4">
+        <p class="font-inter text-sm text-white/40 max-w-xs leading-relaxed">
+          Currently accepting new projects for 2025.<br>Drop me a line!
+        </p>
+        <div class="flex gap-6">
+          <a href="#" class="font-inter font-bold text-sm tracking-widest uppercase text-white/40 hover:text-white transition-colors">Instagram</a>
+          <a href="https://blog.naver.com/zhsksdhahxp" target="_blank" class="font-inter font-bold text-sm tracking-widest uppercase text-white/40 hover:text-white transition-colors">Blog</a>
+          <a href="#" class="font-inter font-bold text-sm tracking-widest uppercase text-white/40 hover:text-white transition-colors">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center border-t border-white/10 pt-8">
+      <span class="font-sora font-black text-lg tracking-tight">FELPEN FRIENDS</span>
+      <p class="font-inter text-xs text-white/30 tracking-widest uppercase">© 2025 Felpen Friends. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ── Contact Form Modal ── -->
+  <div id="contact-modal" class="fixed inset-0 z-[200] flex items-center justify-center hidden">
+    <div id="contact-backdrop" class="absolute inset-0 bg-charcoal/80 backdrop-blur-sm"></div>
+
+    <div id="contact-box"
+         class="relative z-10 bg-background border-2 border-charcoal
+                w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto
+                translate-y-4 opacity-0 transition-all duration-300">
+
+      <!-- Close -->
+      <button id="contact-close"
+              class="absolute top-4 right-4 font-inter font-black text-xl
+                     w-10 h-10 flex items-center justify-center
+                     border-2 border-charcoal hover:bg-charcoal hover:text-white transition-colors z-10">
+        ✕
+      </button>
+
+      <!-- Header -->
+      <div class="border-b-2 border-charcoal px-8 py-8">
+        <p class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/40 mb-2">Felpen Friends</p>
+        <h2 class="font-sora font-extrabold text-[36px] tracking-tight leading-none">프로젝트 의뢰</h2>
+        <p class="font-inter text-sm text-charcoal/50 mt-2">아래 내용을 작성해주시면 빠르게 연락드리겠습니다.</p>
+      </div>
+
+      <!-- Form -->
+      <form id="contact-form"
+            class="px-8 py-8 flex flex-col gap-6">
+        <input type="hidden" name="access_key" value="485d4cfc-4305-43a5-8d82-098fd4edf867">
+        <input type="hidden" name="subject" value="[펠펜프렌즈] 새 프로젝트 의뢰가 도착했습니다">
+        <input type="hidden" name="from_name" value="Felpen Friends 포트폴리오">
+
+        <!-- 이름 + 이메일 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/50 block mb-2">이름 *</label>
+            <input type="text" name="name" required placeholder="홍길동"
+                   class="w-full border-2 border-charcoal px-4 py-3 font-inter text-sm bg-background
+                          focus:outline-none focus:border-primary transition-colors">
+          </div>
+          <div>
+            <label class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/50 block mb-2">이메일 *</label>
+            <input type="email" name="email" required placeholder="your@email.com"
+                   class="w-full border-2 border-charcoal px-4 py-3 font-inter text-sm bg-background
+                          focus:outline-none focus:border-primary transition-colors">
+          </div>
+        </div>
+
+        <!-- 연락처 -->
+        <div>
+          <label class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/50 block mb-2">연락처 (선택)</label>
+          <input type="text" name="phone" placeholder="010-0000-0000"
+                 class="w-full border-2 border-charcoal px-4 py-3 font-inter text-sm bg-background
+                        focus:outline-none focus:border-primary transition-colors">
+        </div>
+
+        <!-- 프로젝트 유형 -->
+        <div>
+          <label class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/50 block mb-2">프로젝트 유형 *</label>
+          <select name="project_type" required
+                  class="w-full border-2 border-charcoal px-4 py-3 font-inter text-sm bg-background
+                         focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
+            <option value="">선택해주세요</option>
+            <option value="brand_identity">브랜드 아이덴티티</option>
+            <option value="illustration">일러스트레이션</option>
+            <option value="character">캐릭터 디자인</option>
+            <option value="package">패키지 디자인</option>
+            <option value="logo">로고 디자인</option>
+            <option value="ai_vibe">AI Vibe Coding / 웹</option>
+            <option value="other">기타</option>
+          </select>
+        </div>
+
+        <!-- 예산 -->
+        <div>
+          <label class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/50 block mb-2">예산 범위</label>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <label class="budget-option border-2 border-charcoal px-3 py-2 text-center cursor-pointer font-inter font-bold text-xs tracking-wide hover:bg-charcoal hover:text-white transition-colors">
+              <input type="radio" name="budget" value="under_100" class="hidden"> ~100만원
+            </label>
+            <label class="budget-option border-2 border-charcoal px-3 py-2 text-center cursor-pointer font-inter font-bold text-xs tracking-wide hover:bg-charcoal hover:text-white transition-colors">
+              <input type="radio" name="budget" value="100_300" class="hidden"> 100~300만원
+            </label>
+            <label class="budget-option border-2 border-charcoal px-3 py-2 text-center cursor-pointer font-inter font-bold text-xs tracking-wide hover:bg-charcoal hover:text-white transition-colors">
+              <input type="radio" name="budget" value="300_500" class="hidden"> 300~500만원
+            </label>
+            <label class="budget-option border-2 border-charcoal px-3 py-2 text-center cursor-pointer font-inter font-bold text-xs tracking-wide hover:bg-charcoal hover:text-white transition-colors">
+              <input type="radio" name="budget" value="over_500" class="hidden"> 500만원 이상
+            </label>
+          </div>
+        </div>
+
+        <!-- 마감일 -->
+        <div>
+          <label class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/50 block mb-2">희망 마감일</label>
+          <input type="date" name="deadline"
+                 class="w-full border-2 border-charcoal px-4 py-3 font-inter text-sm bg-background
+                        focus:outline-none focus:border-primary transition-colors">
+        </div>
+
+        <!-- 프로젝트 설명 -->
+        <div>
+          <label class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/50 block mb-2">프로젝트 설명 *</label>
+          <textarea name="message" required rows="5"
+                    placeholder="프로젝트에 대해 자유롭게 설명해주세요. (브랜드 소개, 원하는 스타일, 참고 레퍼런스 등)"
+                    class="w-full border-2 border-charcoal px-4 py-3 font-inter text-sm bg-background
+                           focus:outline-none focus:border-primary transition-colors resize-none"></textarea>
+        </div>
+
+        <!-- Submit -->
+        <div class="flex gap-4 pt-2">
+          <button type="submit"
+                  class="btn-offset bg-secondary text-white flex-1
+                         px-8 py-4 font-inter font-bold text-sm tracking-widest uppercase
+                         border-2 border-charcoal cursor-pointer">
+            의뢰서 보내기 →
+          </button>
+        </div>
+
+        <!-- 성공 메시지 (숨김) -->
+        <div id="form-success" class="hidden bg-[#4a9b6e] text-white p-4 border-2 border-charcoal text-center">
+          <p class="font-sora font-bold text-lg">전송 완료!</p>
+          <p class="font-inter text-sm mt-1">빠른 시일 내에 연락드리겠습니다.</p>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ── About Modal ── -->
+  <div id="about-modal" class="fixed inset-0 z-[200] flex items-center justify-center hidden">
+    <div id="about-backdrop" class="absolute inset-0 bg-charcoal/80 backdrop-blur-sm"></div>
+
+    <div id="about-box"
+         class="relative z-10 bg-background border-2 border-charcoal
+                w-full max-w-4xl mx-4 max-h-[90vh] overflow-y-auto
+                translate-y-4 opacity-0 transition-all duration-300">
+
+      <!-- Close -->
+      <button id="about-close"
+              class="absolute top-4 right-4 font-inter font-black text-xl
+                     w-10 h-10 flex items-center justify-center
+                     border-2 border-charcoal hover:bg-charcoal hover:text-white transition-colors z-10">
+        ✕
+      </button>
+
+      <!-- Header -->
+      <div class="border-b-2 border-charcoal px-8 md:px-12 py-8">
+        <p class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/40 mb-2">Felpen Friends</p>
+        <h2 class="font-sora font-extrabold text-[40px] md:text-[56px] tracking-tight leading-none">About</h2>
+      </div>
+
+      <!-- Tab nav -->
+      <div class="flex border-b-2 border-charcoal overflow-x-auto">
+        <button class="about-tab active-tab px-6 py-4 font-inter font-bold text-xs tracking-widest uppercase border-r-2 border-charcoal whitespace-nowrap"
+                data-tab="intro">Intro</button>
+        <button class="about-tab px-6 py-4 font-inter font-bold text-xs tracking-widest uppercase border-r-2 border-charcoal whitespace-nowrap text-charcoal/40 hover:text-charcoal"
+                data-tab="experience">Experience</button>
+        <button class="about-tab px-6 py-4 font-inter font-bold text-xs tracking-widest uppercase border-r-2 border-charcoal whitespace-nowrap text-charcoal/40 hover:text-charcoal"
+                data-tab="skills">Skills &amp; Tools</button>
+        <button class="about-tab px-6 py-4 font-inter font-bold text-xs tracking-widest uppercase whitespace-nowrap text-charcoal/40 hover:text-charcoal"
+                data-tab="awards">Awards</button>
+      </div>
+
+      <!-- Tab contents -->
+      <div class="px-8 md:px-12 py-10">
+
+        <!-- Intro -->
+        <div id="tab-intro" class="about-panel">
+          <p class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/40 mb-6">Introduction</p>
+          <p class="font-sora font-bold text-2xl md:text-3xl leading-snug mb-8">
+            브랜드에 생명을 불어넣는 디자이너이자,<br>
+            AI와 함께 코드로 세상을 바꾸는 바이브 코더.
+          </p>
+          <p class="font-inter text-base text-charcoal/60 leading-relaxed max-w-xl">
+            <!-- ★ 자기소개 내용을 여기에 작성하세요 -->
+            아이디어를 빠르게 현실로 만드는 것을 좋아합니다.
+            좋은 디자인은 보이지 않는 곳에 있다고 믿습니다.
+          </p>
+        </div>
+
+        <!-- Experience -->
+        <div id="tab-experience" class="about-panel hidden">
+          <p class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/40 mb-6">Experience</p>
+          <div class="space-y-0 border-t-2 border-charcoal">
+
+            <!-- 현재 -->
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">현재</span>
+              <div>
+                <p class="font-sora font-bold text-base">펠펜프렌즈 브랜드 디자인 회사</p>
+                <p class="font-inter text-sm text-charcoal/50">대표</p>
+              </div>
+            </div>
+
+            <!-- 입주 기업 -->
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">전)</span>
+              <div>
+                <p class="font-sora font-bold text-base">제주 웹툰 캠퍼스</p>
+                <p class="font-inter text-sm text-charcoal/50">입주 기업 선정 (제주 서귀포 동흥로)</p>
+              </div>
+            </div>
+
+            <!-- 스타트업 -->
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">전)</span>
+              <div>
+                <p class="font-sora font-bold text-base">부산관광기업진흥센터 입주 기업 스타트업 "노마드"</p>
+                <p class="font-inter text-sm text-charcoal/50">공동 대표</p>
+              </div>
+            </div>
+
+            <!-- 강사 -->
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">전)</span>
+              <div>
+                <p class="font-sora font-bold text-base">SBS 아카데미 컴퓨터아트학원</p>
+                <p class="font-inter text-sm text-charcoal/50">아트웍 드로잉 강사</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">전)</span>
+              <div>
+                <p class="font-sora font-bold text-base">더조은직업전문학교</p>
+                <p class="font-inter text-sm text-charcoal/50">2D 디자이너 강사</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">전)</span>
+              <div>
+                <p class="font-sora font-bold text-base">엠컴퓨터아카데미</p>
+                <p class="font-inter text-sm text-charcoal/50">디자인 강사</p>
+              </div>
+            </div>
+
+            <!-- 애니메이션 원화/동화 -->
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">Animation</span>
+              <div>
+                <p class="font-sora font-bold text-base">일본 TV 애니메이션 "나루토"</p>
+                <p class="font-inter text-sm text-charcoal/50">원화작화</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">Animation</span>
+              <div>
+                <p class="font-sora font-bold text-base">일본 TV 애니메이션 "아이실드 21"</p>
+                <p class="font-inter text-sm text-charcoal/50">원화작화</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">Animation</span>
+              <div>
+                <p class="font-sora font-bold text-base">일본 TV 애니메이션 "도라에몽"</p>
+                <p class="font-inter text-sm text-charcoal/50">원화작화</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">Animation</span>
+              <div>
+                <p class="font-sora font-bold text-base">일본 TV 애니메이션 "타이타니아"</p>
+                <p class="font-inter text-sm text-charcoal/50">원화작화 및 제작업무</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">Animation</span>
+              <div>
+                <p class="font-sora font-bold text-base">일본 TV 애니메이션 "전국의 바사라"</p>
+                <p class="font-inter text-sm text-charcoal/50">원화작화</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">Animation</span>
+              <div>
+                <p class="font-sora font-bold text-base">일본 TV 애니메이션 "도서관 전쟁"</p>
+                <p class="font-inter text-sm text-charcoal/50">원화작화</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">Animation</span>
+              <div>
+                <p class="font-sora font-bold text-base">일본 TV 애니메이션 "바지리스크"</p>
+                <p class="font-inter text-sm text-charcoal/50">동화작화</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">Animation</span>
+              <div>
+                <p class="font-sora font-bold text-base">일본 TV 애니메이션 "암굴왕"</p>
+                <p class="font-inter text-sm text-charcoal/50">동화작화</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">Animation</span>
+              <div>
+                <p class="font-sora font-bold text-base">일본 TV 애니메이션 "몬스터"</p>
+                <p class="font-inter text-sm text-charcoal/50">동화작화</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">Animation</span>
+              <div>
+                <p class="font-sora font-bold text-base">일본 TV 애니메이션 "공각기동대"</p>
+                <p class="font-inter text-sm text-charcoal/50">동화작화</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">Animation</span>
+              <div>
+                <p class="font-sora font-bold text-base">일본 극장판 "원피스 극장판 8기 — 사막의 공주와 해적들"</p>
+                <p class="font-inter text-sm text-charcoal/50">원화작화</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">Animation</span>
+              <div>
+                <p class="font-sora font-bold text-base">일본 극장판 "강철의 연금술사"</p>
+                <p class="font-inter text-sm text-charcoal/50">동화작화</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div id="tab-skills" class="about-panel hidden">
+          <p class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/40 mb-6">Skills &amp; Tools</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <p class="font-sora font-bold text-sm uppercase mb-4 border-b-2 border-charcoal pb-3">Design</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="border-2 border-charcoal px-3 py-1.5 font-inter font-bold text-xs tracking-widest uppercase">Brand Identity</span>
+                <span class="border-2 border-charcoal px-3 py-1.5 font-inter font-bold text-xs tracking-widest uppercase">Typography</span>
+                <span class="border-2 border-charcoal px-3 py-1.5 font-inter font-bold text-xs tracking-widest uppercase">Illustration</span>
+                <span class="border-2 border-charcoal px-3 py-1.5 font-inter font-bold text-xs tracking-widest uppercase">Package</span>
+                <span class="border-2 border-charcoal px-3 py-1.5 font-inter font-bold text-xs tracking-widest uppercase">Motion</span>
+                <span class="border-2 border-charcoal px-3 py-1.5 font-inter font-bold text-xs tracking-widest uppercase">Figma</span>
+                <span class="border-2 border-charcoal px-3 py-1.5 font-inter font-bold text-xs tracking-widest uppercase">Photoshop</span>
+              </div>
+            </div>
+            <div>
+              <p class="font-sora font-bold text-sm uppercase mb-4 border-b-2 border-charcoal pb-3">Development &amp; AI</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="border-2 border-charcoal px-3 py-1.5 font-inter font-bold text-xs tracking-widest uppercase">Vibe Coding</span>
+                <span class="border-2 border-charcoal px-3 py-1.5 font-inter font-bold text-xs tracking-widest uppercase">Claude AI</span>
+                <span class="border-2 border-charcoal px-3 py-1.5 font-inter font-bold text-xs tracking-widest uppercase">HTML / CSS</span>
+                <span class="border-2 border-charcoal px-3 py-1.5 font-inter font-bold text-xs tracking-widest uppercase">Web / App</span>
+                <span class="border-2 border-charcoal px-3 py-1.5 font-inter font-bold text-xs tracking-widest uppercase">AI Tools</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Awards -->
+        <div id="tab-awards" class="about-panel hidden">
+          <p class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/40 mb-6">Awards &amp; Recognition</p>
+          <div class="border-t-2 border-charcoal">
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">2023</span>
+              <div>
+                <p class="font-sora font-bold text-base">제4회 패스핵 : 메이커톤</p>
+                <p class="font-inter text-sm text-charcoal/50">대상 &amp; 스폰서상 수상</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">2023</span>
+              <div>
+                <p class="font-sora font-bold text-base">Big Data Hackathon</p>
+                <p class="font-inter text-sm text-charcoal/50">대상 수상</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">2023</span>
+              <div>
+                <p class="font-sora font-bold text-base">Dx Sprint</p>
+                <p class="font-inter text-sm text-charcoal/50">우수상 수상</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">2023</span>
+              <div>
+                <p class="font-sora font-bold text-base">경남콘텐츠 코리아랩 콘텐츠창작캠프</p>
+                <p class="font-inter text-sm text-charcoal/50">최우수상 수상</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">2023</span>
+              <div>
+                <p class="font-sora font-bold text-base">경남콘텐츠 코리아랩 뉴스타트업 프로그램</p>
+                <p class="font-inter text-sm text-charcoal/50">창업 지원금 선정 (1,000만원)</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">2023</span>
+              <div>
+                <p class="font-sora font-bold text-base">아이사 CGI 제주 웹툰 캠퍼스</p>
+                <p class="font-inter text-sm text-charcoal/50">입주 기업 선정</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">2019</span>
+              <div>
+                <p class="font-sora font-bold text-base">부산관광스타트업 공모전 B-트래블톤 (Startup Weekend Busan)</p>
+                <p class="font-inter text-sm text-charcoal/50">우수상 수상</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">2019</span>
+              <div>
+                <p class="font-sora font-bold text-base">부산 소재 콘텐츠 디자인 굿즈(GOODS) 제작 지원 사업</p>
+                <p class="font-inter text-sm text-charcoal/50">수상</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">2017</span>
+              <div>
+                <p class="font-sora font-bold text-base">DEZINE.BY 티셔츠 디자인 공모전</p>
+                <p class="font-inter text-sm text-charcoal/50">입상</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">2018</span>
+              <div>
+                <p class="font-sora font-bold text-base">그라니프 디자인 공모전</p>
+                <p class="font-inter text-sm text-charcoal/50">입상</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">2018</span>
+              <div>
+                <p class="font-sora font-bold text-base">창작 캐릭터 디자인 공모전</p>
+                <p class="font-inter text-sm text-charcoal/50">입상</p>
+              </div>
+            </div>
+
+            <div class="flex gap-8 py-5 border-b-2 border-charcoal">
+              <span class="font-inter text-sm text-charcoal/40 w-24 shrink-0">2018</span>
+              <div>
+                <p class="font-sora font-bold text-base">OMG 로고 디자인 공모전</p>
+                <p class="font-inter text-sm text-charcoal/50">입상</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Project Modal ── -->
+  <div id="modal" class="fixed inset-0 z-[200] flex items-center justify-center hidden">
+    <!-- Backdrop -->
+    <div id="modal-backdrop" class="absolute inset-0 bg-charcoal/80 backdrop-blur-sm"></div>
+
+    <!-- Modal box -->
+    <div class="relative z-10 bg-background border-2 border-charcoal
+                w-full max-w-3xl mx-4 max-h-[90vh] overflow-y-auto
+                translate-y-4 opacity-0 transition-all duration-300"
+         id="modal-box">
+
+      <!-- Close -->
+      <button id="modal-close"
+              class="absolute top-4 right-4 font-inter font-black text-xl
+                     w-10 h-10 flex items-center justify-center
+                     border-2 border-charcoal hover:bg-charcoal hover:text-white transition-colors z-10">
+        ✕
+      </button>
+
+      <!-- Image area -->
+      <div id="modal-img" class="w-full"></div>
+
+      <!-- Info -->
+      <div class="p-8 md:p-12">
+        <p id="modal-cat" class="font-inter font-bold text-xs tracking-widest uppercase text-charcoal/40 mb-3"></p>
+        <h2 id="modal-title" class="font-sora font-extrabold text-[36px] md:text-[52px] tracking-tight leading-none mb-6"></h2>
+        <p id="modal-desc" class="font-inter text-base text-charcoal/60 leading-relaxed mb-4 max-w-xl"></p>
+        <div class="flex items-center gap-10 flex-wrap">
+          <a href="#contact"
+             onclick="closeModal()"
+             class="btn-offset bg-secondary text-white
+                    px-8 py-4 font-inter font-bold text-sm tracking-widest uppercase
+                    border-2 border-charcoal inline-block">
+            Start a Project
+          </a>
+          <a id="modal-link" href="" target="_blank"
+             class="hidden font-inter text-sm font-bold tracking-wide text-charcoal underline underline-offset-4 hover:opacity-60 transition-opacity">
+            블로그 바로가기 →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ── Contact Form Modal ──
+    const contactModal    = document.getElementById('contact-modal');
+    const contactBox      = document.getElementById('contact-box');
+    const contactBackdrop = document.getElementById('contact-backdrop');
+    const contactClose    = document.getElementById('contact-close');
+
+    function openContact(e) {
+      if (e) e.preventDefault();
+      contactModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        contactBox.style.opacity = '1';
+        contactBox.style.transform = 'translateY(0)';
+      });
+    }
+
+    function closeContact() {
+      contactBox.style.opacity = '0';
+      contactBox.style.transform = 'translateY(16px)';
+      setTimeout(() => {
+        contactModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 280);
+    }
+
+    document.getElementById('open-contact-form').addEventListener('click', openContact);
+    contactClose.addEventListener('click', closeContact);
+    contactBackdrop.addEventListener('click', closeContact);
+
+    // 예산 선택 시 활성화 스타일
+    document.querySelectorAll('.budget-option input').forEach(radio => {
+      radio.addEventListener('change', () => {
+        document.querySelectorAll('.budget-option').forEach(l => {
+          l.style.background = '';
+          l.style.color = '';
+        });
+        if (radio.checked) {
+          radio.parentElement.style.background = '#363636';
+          radio.parentElement.style.color = '#fff';
+        }
+      });
+    });
+
+    // 폼 제출 → Web3Forms
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = form.querySelector('[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = '전송 중...';
+
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: json
+        });
+        const result = await res.json();
+        if (result.success) {
+          document.getElementById('form-success').classList.remove('hidden');
+          submitBtn.style.display = 'none';
+          form.reset();
+        } else {
+          submitBtn.textContent = '전송 실패. 다시 시도해주세요.';
+          submitBtn.disabled = false;
+        }
+      } catch {
+        submitBtn.textContent = '오류가 발생했습니다. 다시 시도해주세요.';
+        submitBtn.disabled = false;
+      }
+    });
+
+    // ── About Modal ──
+    const aboutModal    = document.getElementById('about-modal');
+    const aboutBox      = document.getElementById('about-box');
+
+    function openAbout(e) {
+      e.preventDefault();
+      aboutModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        aboutBox.style.opacity = '1';
+        aboutBox.style.transform = 'translateY(0)';
+      });
+    }
+
+    function closeAbout() {
+      aboutBox.style.opacity = '0';
+      aboutBox.style.transform = 'translateY(16px)';
+      setTimeout(() => {
+        aboutModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 280);
+    }
+
+    document.getElementById('open-about').addEventListener('click', openAbout);
+    document.getElementById('about-close').addEventListener('click', closeAbout);
+    document.getElementById('about-backdrop').addEventListener('click', closeAbout);
+
+    // Tab switching
+    document.querySelectorAll('.about-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.about-tab').forEach(t => {
+          t.classList.remove('active-tab');
+          t.classList.add('text-charcoal/40');
+        });
+        btn.classList.add('active-tab');
+        btn.classList.remove('text-charcoal/40');
+        document.querySelectorAll('.about-panel').forEach(p => p.classList.add('hidden'));
+        document.getElementById('tab-' + btn.dataset.tab).classList.remove('hidden');
+      });
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeAbout(); closeModal(); }
+    });
+
+    // ── Project Modal ──
+    const modal       = document.getElementById('modal');
+    const modalBox    = document.getElementById('modal-box');
+    const modalImg    = document.getElementById('modal-img');
+    const modalTitle  = document.getElementById('modal-title');
+    const modalCat    = document.getElementById('modal-cat');
+    const modalDesc   = document.getElementById('modal-desc');
+    const modalLink   = document.getElementById('modal-link');
+
+    function openModal(el) {
+      modalTitle.textContent = el.dataset.title;
+      modalCat.textContent   = el.dataset.cat;
+      modalDesc.textContent  = el.dataset.desc;
+      if (el.dataset.link) {
+        modalLink.href = el.dataset.link;
+        modalLink.textContent = el.dataset.linkLabel || '블로그 바로가기 →';
+        modalLink.classList.remove('hidden');
+      } else {
+        modalLink.classList.add('hidden');
+      }
+      if (el.dataset.img) {
+        modalImg.style.background = '';
+        const src = el.dataset.img;
+        if (src.endsWith('.pdf')) {
+          modalImg.innerHTML = `<embed src="${src}" type="application/pdf" style="width:100%;height:80vh;display:block;">`;
+        } else {
+          modalImg.innerHTML = `<div style="padding:2cm;"><img src="${src}" alt="${el.dataset.title}" style="width:100%;height:auto;display:block;"></div>`;
+        }
+      } else {
+        modalImg.innerHTML = '';
+        modalImg.style.background = el.dataset.bg;
+      }
+      modal.classList.remove('hidden');
+      document.getElementById('modal-box').scrollTop = 0;
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        modalBox.style.opacity = '1';
+        modalBox.style.transform = 'translateY(0)';
+      });
+    }
+
+    function closeModal() {
+      modalBox.style.opacity = '0';
+      modalBox.style.transform = 'translateY(16px)';
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 280);
+    }
+
+    document.querySelectorAll('.open-modal').forEach(el => {
+      el.addEventListener('click', () => openModal(el));
+    });
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('modal-backdrop').addEventListener('click', closeModal);
+  </script>
+
+</body>
+</html>
