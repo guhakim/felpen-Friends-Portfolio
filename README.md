@@ -203,6 +203,10 @@ open index.html
 | 2026-05-31 | Framer 코드 컴포넌트 버전 제작 (FelpenPortfolio.tsx) |
 | 2026-05-31 22:05 | 최종 백업 생성 (portfolio_backup_20260531_2205.zip) |
 | 2026-06-02 | GitHub 저장소 등록 및 README 작성 |
+| 2026-06-02 | 석류 패키지 메인 이미지 교체 (png → jpeg) |
+| 2026-06-02 | 캐릭터 메인 이미지 교체 (820×820px 신규 버전) |
+| 2026-06-02 | 로고 메인 이미지 교체 (커피도시 부산 BI 신규 버전) |
+| 2026-06-02 | More Work 섹션 카테고리 라벨 영문 통일 (Illustration, AI, Package, Logo, Character 등) |
 
 ---
 
