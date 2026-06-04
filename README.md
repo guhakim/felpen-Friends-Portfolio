@@ -2,7 +2,7 @@
 
 > Brand Designer & AI Vibe Coder | 브랜드 디자이너 & AI 바이브 코더
 
-**Live Site:** [포트폴리오 바로가기](https://guhakim.github.io/felpen-Friends-Portfolio/)  
+**Live Site:** [포트폴리오 바로가기](https://guhakim.github.io/felpen_friends/)  
 **Contact:** felpen@naver.com  
 **Blog:** [blog.naver.com/zhsksdhahxp](https://blog.naver.com/zhsksdhahxp)
 
