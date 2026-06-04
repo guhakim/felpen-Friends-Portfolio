@@ -1001,6 +1001,11 @@
   </div>
 
   <script>
+    if (history.scrollRestoration) history.scrollRestoration = 'manual';
+    window.addEventListener('load', () => window.scrollTo(0, 0));
+  </script>
+
+  <script>
     // ── Contact Form Modal ──
     const contactModal    = document.getElementById('contact-modal');
     const contactBox      = document.getElementById('contact-box');
