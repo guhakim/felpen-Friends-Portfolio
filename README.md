@@ -6,6 +6,8 @@
 **Contact:** felpen@naver.com  
 **Blog:** [blog.naver.com/zhsksdhahxp](https://blog.naver.com/zhsksdhahxp)
 
+<img width="1271" height="558" alt="CleanShot 2026-06-05 at 13 57 29" src="https://github.com/user-attachments/assets/7148ec2c-bf08-446f-94c3-2a49e1e8aae4" />
+
 ---
 
 ## 프로젝트 개요
